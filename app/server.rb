@@ -11,8 +11,8 @@ get '/' do
 	redirect to('/events-calendar')
 end
 
-get '/events-calendar' do
-	haml :events_calendar,
+get '/events' do
+	haml :events,
 		:attr_wrapper => '"',
 		:locals => {
 			:title => 'Events Calendar | ReThinkinIt'
