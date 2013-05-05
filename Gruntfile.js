@@ -232,14 +232,6 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            defaultTemplate: {
-                files: [{
-                    expand: true,
-                    cwd: require('path').dirname(require.resolve('generator-backbone/app/templates/templates.js')),
-                    dest: '.tmp/scripts/',
-                    src: [ 'templates.js' ]
-                }]
-            },
             dist: {
                 files: [{
                     expand: true,
@@ -259,16 +251,6 @@ module.exports = function (grunt) {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
             }
         },
-        jst: {
-            options: {
-                amd: true
-            },
-            compile: {
-                files: {
-                    '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/templates/*.ejs']
-                }
-            }
-        }
     });
 
     grunt.renameTask('regarde', 'watch');
