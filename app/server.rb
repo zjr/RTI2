@@ -8,7 +8,7 @@ require 'json'
 DB = Mongo::Connection.new.db('rti2db', :pool_size => 5, :timeout => 5)
 
 get '/' do
-	redirect to('/events-calendar')
+	redirect to('/event-calendar')
 end
 
 get '/event-calendar' do
