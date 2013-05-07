@@ -1,6 +1,13 @@
-#events
-	#new-event
-		%h1 Add New Event
-	#calendar
+#events.row-fluid
+	
+	.span9
 
-	#event
+		#calendar
+
+		%ul#event-list
+
+	.span3
+
+		%a.btn.btn-large.btn-block.btn-primary{:href => "#add", :'data-toggle' => "modal", :role => "button"} Add a New Event
+
+	#add.modal.hide.fade
