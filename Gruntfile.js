@@ -35,8 +35,9 @@ module.exports = function (grunt) {
 				files: [
 					'<%= yeoman.app %>/views/{,*/}*.haml',
 					'<%= yeoman.pub %>/styles/{,*/}*.css',
+					'<%= yeoman.pub %>/scripts/templates/*.html',
 					'<%= yeoman.pub %>/scripts/{,*/}*.js',
-					'<%= yeoman.pub %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
+					'<%= yeoman.pub %>/img/{,*/}*.{png,jpg,jpeg,gif,webp}'
 				],
 				tasks: ['livereload']
 			}
@@ -105,7 +106,7 @@ module.exports = function (grunt) {
 		// 	options: {
 		// 		sassDir: '<%= yeoman.app %>/sass',
 		// 		cssDir: '<%= yeoman.pub %>/styles',
-		// 		imagesDir: '<%= yeoman.pub %>/images',
+		// 		imgDir: '<%= yeoman.pub %>/img',
 		// 		javascriptsDir: '<%= yeoman.pub %>/scripts',
 		// 		fontsDir: '<%= yeoman.pub %>/fonts',
 		// 		importPath: '<%= yeoman.pub %>/components',
@@ -156,7 +157,7 @@ module.exports = function (grunt) {
 						'.htaccess',
 						'public/components/**',
 						'public/fonts/**',
-						'public/images/**'
+						'public/img/**'
 					]
 				}]
 			}
