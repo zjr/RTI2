@@ -8,10 +8,12 @@ define(['backbone'], function(Backbone) {
 		defaults: function () {
 			return {
 				title: null,
-				eventType: null,
 				dateTime: null,
+				eventType: null,
 				seats: null,
-				description: null
+				price: null,
+				image: null,
+				description: null,
 			};
 		}
 	});

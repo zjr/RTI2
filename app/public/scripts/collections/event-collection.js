@@ -1,4 +1,7 @@
-define(['backbone', 'models/event-model'], function(Backbone, Event) {
+define([
+	'backbone',
+	'models/event-model'
+], function(Backbone, Event) {
 	'use strict';
 
 	var EventList = Backbone.Collection.extend({

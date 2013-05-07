@@ -1,0 +1,66 @@
+<form class="form-horizontal no-margin">
+	<fieldset>
+		<div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3>Add New Event</h3>
+		</div>
+		<div class="modal-body">
+			<div class="control-group">
+				<label class="control-label" for="event-title">Event Title</label>
+				<div class="controls">
+					<input id="event-title" type="text">
+				</div>
+			</div>
+			<div class="control-group" id="dt-picker">
+				<label class="control-label" for="event-datetime">Event Date/Time</label>
+				<div class="input-append date controls" style="display: block;">
+					<input data-format="MM/dd/yyyy HH:mm:ss PP" id="event-datetime" type="text">
+					<span class="add-on">
+						<i data-date-icon="icon-calendar" data-time-icon="icon-time"></i>
+					</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">Event Type</label>
+				<div class="controls">
+					<label class="radio inline" for="event-type-open">
+						<input id="event-type-open" name="event-type" type="radio" value="open" checked>
+						Open
+					</label>
+					<label class="radio inline" for="event-type-private">
+						<input id="event-type-private" name="event-type" type="radio" value="private">
+						Private
+					</label>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="event-seats">Number of Seats</label>
+				<div class="controls">
+					<input id="event-seats" type="number">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="event-price">Event Price</label>
+				<div class="controls">
+					<input id="event-price" type="number">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="event-image">Event Image</label>
+				<div class="controls">
+					<input id="event-image" type="text">
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="event-description">Event Description</label>
+				<div class="controls">
+					<textarea id="event-description" rows="3"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button id="submit" class="btn btn-large btn-block btn-primary" type="submit">Create Event</button>
+			<button class="btn btn-large btn-block" type="button" data-dismiss="modal">Cancel</button>
+		</div>
+	</fieldset>
+</form>
