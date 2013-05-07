@@ -20,11 +20,10 @@
 	/ endbuild
 
 %body
-	#container
-		%header
-		#main{'role' => 'main'}
-			= yield
-		%footer
+	%header
+	.container
+		= yield
+	%footer
 
 	/[if lt IE 7]
 		%p.chromeframe
