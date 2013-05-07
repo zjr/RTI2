@@ -10,7 +10,9 @@ define([
 		},
 
 		eventCalendar: function () {
-			new EventCalendarView();
+			RTI.activeView = new EventCalendarView({
+				el: $('#events')
+			});
 		}
 	});
 
