@@ -15,6 +15,9 @@ require.config({
 		bootstrap: {
 			deps: ['jquery'],
 			exports: 'jquery'
+		'bootstrap-datetimepicker': {
+			deps: ['jquery', 'bootstrap'],
+			exports: 'jquery'
 		}
 	},
 	paths: {
@@ -22,6 +25,7 @@ require.config({
 		backbone: '../components/backbone-amd/backbone',
 		underscore: '../components/underscore-amd/underscore',
 		bootstrap: 'vendor/bootstrap'
+		'bootstrap-datetimepicker': 'vendor/bootstrap-datetimepicker'
 	}
 });
 
