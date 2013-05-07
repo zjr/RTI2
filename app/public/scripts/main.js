@@ -29,6 +29,7 @@ require.config({
 		jquery: '../components/jquery/jquery',
 		backbone: '../components/backbone-amd/backbone',
 		underscore: '../components/underscore-amd/underscore',
+		text: '../components/requirejs-text/text',
 		bootstrap: 'vendor/bootstrap',
 		'bootstrap-datepicker': '../components/bootstrap-datepicker/js/bootstrap-datepicker',
 		'bootstrap-datetimepicker': 'vendor/bootstrap-datetimepicker'
