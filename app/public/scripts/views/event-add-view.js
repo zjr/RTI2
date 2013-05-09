@@ -19,7 +19,7 @@ define([
 		},
 
 		render: function () {
-			this.$el.html(this.template);
+			this.$el.append(this.template);
 
 			// Refactor with Array?
 			this.titleInput = this.$('#event-title');
@@ -38,6 +38,14 @@ define([
 			});
 
 			this.delegateEvents();
+
+			$('#add').on('hide', _.bind(function () {
+				this.trigger('closeModal')
+			}, this));
+		},
+
+		unbindEvents: function () {
+			this.undelegateEvents();
 		},
 
 		addEvent: function (e) {

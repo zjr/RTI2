@@ -29,18 +29,19 @@ define([
 			this.render();
 		},
 
-		bindKeys: function () {
+		bindEvents: function () {
 			$(document).on('keydown', $.proxy(this.keyboard, this));
+			this.delegateEvents();
 		},
 
-		unbindKeys: function () {
+		unbindEvents: function () {
 			$(document).off('keydown', $.proxy(this.keyboard, this));
+			this.undelegateEvents();
 		},
 
 		render: function (e) {
 			console.log('Events Event: ' + e);
-			this.bindKeys();
-			this.delegateEvents();
+			this.bindEvents();
 		},
 
 		addOne: function (eventModel) {
@@ -57,34 +58,54 @@ define([
 		},
 
 		makeAddModal: function () {
-			this.unbindKeys();
+			// Bind Add Modal events and then
+			// ...return if Add Modal already exists.
 			if (this.addModalView) {
-				this.addModalView.render();
+				this.addModalView.delegateEvents();
 				return;
 			}
+
+			// Create new Add Modal.
 			this.addModalView = new EventAddView({
 				el: this.addMod
 			});
-			this.listenTo(this.addModalView, 'submit', this.clearAddModal);
+
+			// Start listening to Add form submit.
+			this.listenTo(this.addModalView, 'closeModal', this.eBindSwitch);
+			this.listenTo(this.addModalView, 'submit', this.hideAddModal);
 		},
 
-		clearAddModal: function () {
-			this.addMod.modal('hide');
+		// Switches ye bindings back to this view!
+		eBindSwitch: function () {
+			// Unbind the Add Modal's events and...
+			// rebind this view's events.
 			this.addModalView.undelegateEvents();
-			this.render();
+			this.bindEvents();
+		},
+
+		hideAddModal: function () {
+			this.eBindSwitch();
+			this.addMod.modal('hide');
 		},
 
 		showAddModal: function () {
 			this.addMod.modal('show');
 		},
 
+		// Fires when Add Modal is fully shown.
 		shownModal: function () {
 			// Focus first input.
 			$('#event-title').focus();
+			// Unbind Cal View events so as to not interfere...
+			// ...with Event Add View events.
+			this.unbindEvents();
 		},
 
+		// Shortcut: 'N' key opens Add Modal.
 		keyboard: function (e) {
 			if (e.keyCode === 78) {
+				// Make should run the event bindings and...
+				// show actually opens the modal.
 				this.makeAddModal();
 				this.showAddModal();
 			} else {
