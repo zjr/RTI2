@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sass --watch --compass --sourcemap app/sass/main.sass:app/public/styles/main.css
