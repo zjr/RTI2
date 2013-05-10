@@ -32,7 +32,7 @@ require.config({
 		text: '../components/requirejs-text/text',
 		bootstrap: 'vendor/bootstrap',
 		'bootstrap-datepicker': '../components/bootstrap-datepicker/js/bootstrap-datepicker',
-		'bootstrap-datetimepicker': 'vendor/bootstrap-datetimepicker'
+		'bootstrap-datetimepicker': 'vendor/bootstrap-datetimepicker-2'
 	}
 });
 
