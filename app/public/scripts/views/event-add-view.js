@@ -9,7 +9,7 @@ define([
 
 		events: {
 			'click #submit': 'addEvent',
-			'keypress input': 'addOnEnter'
+			'keypress input': 'addOnEnter',
 		},
 
 		template: _.template(template),
@@ -21,6 +21,12 @@ define([
 		render: function () {
 			this.$el.append(this.template);
 
+			// because I can't manage to get this...
+			// working in the parent view.
+			$('#add').on('hide', _.bind(function () {
+				this.trigger('closeModal');
+			}, this));
+
 			// Refactor with Array?
 			this.titleInput = this.$('#event-title');
 			this.dateTimeInput = this.$('#event-datetime');
@@ -29,19 +35,7 @@ define([
 			this.imageInput = this.$('#event-image');
 			this.descriptionInput = this.$('#event-description');
 
-			this.dtp = this.$('#dt-picker');
-
-			// Init dateTimePicker
-			this.dtp.datetimepicker({
-				language: 'en',
-				pick12HourFormat: true
-			});
-
-			this.delegateEvents();
-
-			$('#add').on('hide', _.bind(function () {
-				this.trigger('closeModal')
-			}, this));
+			this.initDateTimePicker();
 		},
 
 		unbindEvents: function () {
@@ -53,7 +47,7 @@ define([
 			// Iterate through refactored array?
 			RTI.Events.create({
 				title: this.titleInput.val(),
-				dateTime: this.dateTimeInput.val(),
+				dateTime: new Date(this.dateTimeInput.val()),
 				eventType: this.$('input[name=event-type]:checked').val(),
 				seats: this.seatsInput.val(),
 				price: this.priceInput.val(),
@@ -67,6 +61,27 @@ define([
 		addOnEnter: function (e) {
 			if (e.keyCode !== 13) {return;}
 			this.addEvent(e);
+		},
+
+		initDateTimePicker: function () {
+			var nooned = function () {
+				var d = new Date();
+				return new Date(d.setHours(12, 0, 0, 0));
+			};
+			this.dtp = this.$('#dt-picker');
+			this.dtp.datetimepicker({
+				format: 'MM d, yyyy H:ii P',
+				autoclose: true,
+				minuteStep: 15,
+				showMeridian: true,
+				pickerPosition: 'bottom-left',
+				language: 'en',
+				initialDate: nooned()
+			}).on(
+				'hide', _.bind(function () {
+					_.defer(_.bind(this.delegateEvents, this));
+				}, this)
+			);
 		}
 
 	});
