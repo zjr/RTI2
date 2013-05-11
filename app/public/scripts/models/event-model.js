@@ -8,7 +8,7 @@ define(['backbone'], function(Backbone) {
 		defaults: function () {
 			return {
 				title: null,
-				dateTime: null,
+				start: null,
 				eventType: null,
 				seats: null,
 				price: null,

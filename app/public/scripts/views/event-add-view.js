@@ -47,7 +47,7 @@ define([
 			// Iterate through refactored array?
 			RTI.Events.create({
 				title: this.titleInput.val(),
-				dateTime: new Date(this.dateTimeInput.val()),
+				start: new Date(this.dateTimeInput.val()),
 				eventType: this.$('input[name=event-type]:checked').val(),
 				seats: this.seatsInput.val(),
 				price: this.priceInput.val(),
