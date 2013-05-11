@@ -16,6 +16,7 @@ define([
 		},
 
 		initialize: function () {
+			// Make Events, the new Event collection object.
 			RTI.Events = RTI.Events || new EventList();
 
 			RTI.Events.on('add', this.addOne, this);

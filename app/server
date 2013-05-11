@@ -10,14 +10,14 @@ require 'json'
 DB = Mongo::Connection.new.db('rti2db', :pool_size => 5, :timeout => 5)
 
 get '/' do
-	redirect to('/event-calendar')
+	redirect to('/events')
 end
 
-get '/event-calendar' do
-	haml :event_calendar,
+get '/events' do
+	haml :events,
 		:attr_wrapper => '"',
 		:locals => {
-			:title => 'Event Calendar | ReThinkinIt'
+			:title => 'Events | ReThinkinIt'
 		}
 end
 
