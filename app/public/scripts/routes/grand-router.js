@@ -1,7 +1,7 @@
 define([
 	'backbone',
-	'views/event-calendar-view'
-], function (Backbone, EventCalendarView) {
+	'views/event-overview'
+], function (Backbone, EventOverview) {
 	'use strict';
 
 	var GrandRouter = Backbone.Router.extend({
@@ -10,7 +10,7 @@ define([
 		},
 
 		eventCalendar: function () {
-			RTI.activeView = new EventCalendarView({
+			RTI.activeView = new EventOverview({
 				el: $('#events')
 			});
 		}
