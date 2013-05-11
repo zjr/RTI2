@@ -16,12 +16,12 @@ require.config({
 			deps: ['jquery'],
 			exports: 'jquery'
 		},
-		'bootstrap-datepicker': {
+		datetimepicker: {
 			deps: ['jquery', 'bootstrap'],
 			exports: 'jquery'
 		},
-		'bootstrap-datetimepicker': {
-			deps: ['jquery', 'bootstrap'],
+		fullcal: {
+			deps: ['jquery'],
 			exports: 'jquery'
 		}
 	},
@@ -31,8 +31,8 @@ require.config({
 		underscore: '../components/underscore-amd/underscore',
 		text: '../components/requirejs-text/text',
 		bootstrap: 'vendor/bootstrap',
-		'bootstrap-datepicker': '../components/bootstrap-datepicker/js/bootstrap-datepicker',
-		'bootstrap-datetimepicker': 'vendor/bootstrap-datetimepicker-2'
+		datetimepicker: 'vendor/bootstrap-datetimepicker-2',
+		fullcal: '../components/fullcalendar/fullcalendar'
 	}
 });
 

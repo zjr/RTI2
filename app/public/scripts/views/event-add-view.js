@@ -1,7 +1,7 @@
 define([
 	'backbone',
 	'text!templates/event-add-template.html',
-	'bootstrap-datetimepicker'
+	'datetimepicker'
 ], function (Backbone, template) {
 	'use strict';
 
