@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-
-require 'rubygems'
 require 'bundler/setup'
 
 require 'sinatra'
@@ -19,6 +17,10 @@ get '/events' do
 		:locals => {
 			:title => 'Events | ReThinkinIt'
 		}
+end
+
+get '/api/events' do
+	DB.collection('events').find.sort('start').to_a.map{|t| from_bson_id(t)}.to_json
 end
 
 get '/api/:thing' do
