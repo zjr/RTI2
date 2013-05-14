@@ -1,8 +1,10 @@
-define(['backbone', 'fullcal'], function (Backbone) {
+define(['backbone', 'fullcal', 'scrollto'], function (Backbone) {
 	'use strict';
 
 	var CalView = Backbone.View.extend({
 		initialize: function () {
+			var eList = $('#event-list');
+
 			this.$el.fullCalendar({
 
 				// This means I'm actually making two calls
@@ -21,11 +23,16 @@ define(['backbone', 'fullcal'], function (Backbone) {
 					color: '#04c'
 				},
 
-				dayClick: function () {
+				eventClick: function (calEvent) {
+					// Would be nice to eventually move this
+					// into an events router and use pushState.
+					var id = calEvent._id;
+					$('#event-list').scrollTo($('#' + id), '1s');
+
 					console.log(this, arguments);
 				},
 
-				eventClick: function () {
+				dayClick: function () {
 					console.log(this, arguments);
 				}
 

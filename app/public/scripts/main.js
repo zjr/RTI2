@@ -23,6 +23,10 @@ require.config({
 		fullcal: {
 			deps: ['jquery'],
 			exports: 'jquery'
+		},
+		scrollto: {
+			deps: ['jquery'],
+			exports: 'jquery'
 		}
 	},
 	paths: {
@@ -32,7 +36,8 @@ require.config({
 		text: '../components/requirejs-text/text',
 		bootstrap: 'vendor/bootstrap',
 		datetimepicker: 'vendor/bootstrap-datetimepicker-2',
-		fullcal: '../components/fullcalendar/fullcalendar'
+		fullcal: '../components/fullcalendar/fullcalendar',
+		scrollto: '../components/jquery.scrollTo/jquery.scrollTo'
 	}
 });
 
