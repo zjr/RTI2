@@ -19,8 +19,10 @@ define([
 			// Make Events, the new Event collection object.
 			RTI.Events = RTI.Events || new EventList();
 
-			RTI.Events.on('add', this.addOne, this);
-			RTI.Events.on('reset', this.addAll, this);
+			// Compare by date, makes sense for events, no?
+			RTI.Events.comparator = 'start';
+
+			RTI.Events.on('sync', this.addAll, this);
 			RTI.Events.on('all', this.render, this);
 
 			RTI.Events.fetch();
@@ -56,10 +58,17 @@ define([
 			this.$('#event-list').append(eventView.render().el);
 		},
 
+		reSync: function () {
+			console.log('reSync');
+			this.$('#event-list').empty();
+			_.defer(RTI.Events.fetch);
+		},
+
 		addAll: function () {
-			// I don't think this function is actually necessary at the moment.
-			// RTI.Events.each();
-			console.log('ADDALL CALLED');
+			// Because of this I might be able to take
+			// the sort out of the API code.
+			_.each(RTI.Events.models, this.addOne, this);
+			_.once(RTI.Events.on('add', this.reSync, this));
 		},
 
 		makeAddModal: function () {
