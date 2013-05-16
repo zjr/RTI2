@@ -4,3 +4,4 @@ dist
 *.sublime-*
 app/public/styles
 app/public/components
+Gemfile.lock
